@@ -9,12 +9,18 @@ mix
             'node_modules/bourbon/core'
         ]
     })
+    .js('resources/js/main.js', 'dist/js')
     .pug('resources/pug', 'dist')
     .browserSync({
-        proxy: 'http://localhost:8080/',
+        server: {
+            baseDir: "dist",
+            directory: true
+        },
+        proxy: false,
         files: [
             'dist/*.html',
-            'dist/css/*.css'
+            'dist/css/*.css',
+            'dist/js/*.js'
         ],
         notify: false
     })
