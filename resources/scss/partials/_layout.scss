@@ -1,0 +1,19 @@
+// breakpoints
+
+$small  : 480px;
+$middle : 768px;
+$large  : 1170px;
+
+// media queries
+
+@mixin media-query($canvas) {
+  @if $canvas == small {
+    @media only screen and (min-width: $small) { @content; }
+  }
+  @else if $canvas == middle {
+    @media only screen and (min-width: $middle) { @content; }
+  }
+  @else if $canvas == large {
+    @media only screen and (min-width: $large) { @content; }
+  }
+}
