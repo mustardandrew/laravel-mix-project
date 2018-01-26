@@ -1,19 +1,58 @@
-// breakpoints
+// Device type
 
-$small  : 480px;
-$middle : 768px;
-$large  : 1170px;
+$mobile          : '(min-width: 320px) and (max-width: 767px)';
+$small-tablet    : '(min-width: 768px) and (max-width: 1023px)';
+$large-tablet    : '(min-width: 1024px) and (max-width: 1200px)';
+$desktop         : '(min-width: 1201px) and (max-width: 1599px)';
+$extra           : '(min-width: 1600px)';
 
-// media queries
+// Example Using
+//   @media #{$mobile}
+//      .example
+//        color: #fff
 
-@mixin media-query($canvas) {
-  @if $canvas == small {
-    @media only screen and (min-width: $small) { @content; }
+// or use media-query  mixin
+
+@mixin media-query($query) {
+   @media #{$query} {
+     @content;
+   }
+}
+
+// Flex
+
+.flex {
+  display: flex;
+  flex-direction: columns;
+
+.col {
+
+    &.one   { flex: 1; }
+
+    @extend .one;
+
+    &.two    { flex: 2; }
+    &.three  { flex: 3; }
+    &.four   { flex: 4; }
+    &.five   { flex: 5; }
+    &.six    { flex: 6; }
+    &.seven  { flex: 7; }
+    &.eight  { flex: 8; }
+    &.none   { flex: 9; }
+    &.ten    { flex: 10; }
+    &.eleven { flex: 11; }
+    &.twelve { flex: 12; }
   }
-  @else if $canvas == middle {
-    @media only screen and (min-width: $middle) { @content; }
-  }
-  @else if $canvas == large {
-    @media only screen and (min-width: $large) { @content; }
+
+}
+
+@include media-query($mobile) {
+  .flex {
+    flex-wrap: wrap;
+
+    .col {
+      flex: initial;
+      width: 100%;
+    }
   }
 }
