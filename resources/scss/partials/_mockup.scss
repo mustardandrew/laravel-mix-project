@@ -1,0 +1,96 @@
+@import "math";
+
+$mockup-color: #ddd;
+$mockup-light-color: #eee;
+$mockup-white-color: #fff;
+
+@mixin mockup-cross($width, $height) {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  $length: sqrt(pow($width, 2) + pow($height, 2));
+  $deg: rad-to-deg( atan2($width, $height) );
+
+  &:before, &:after {
+    content: '';
+    height: #{$length}px ;
+    width: 5px;
+    background-color: $mockup-color;
+  }
+  &:before {
+    transform: rotate(#{$deg});
+  }
+  &:after {
+    transform: rotate(-#{$deg});
+  }
+}
+
+@mixin mockup-circle($diameter)
+{
+  height: #{$diameter}px;
+  width: #{$diameter}px;
+  border-radius: 50%;
+  background-color: $mockup-color;
+}
+
+@mixin mockup-square($height) {
+  height: #{$height}px;
+  width: 100%;
+  background-color: $mockup-light-color;
+}
+
+@mixin mockup-image($width, $height) {
+  width: #{$width}px;
+  height: #{$height}px;
+
+  border: 5px solid $mockup-color;
+  @include  mockup-cross($width, $height);
+  background-color: $mockup-light-color;
+
+  @content;
+}
+
+@mixin mockup-list() {
+  &, ul {
+    li {
+      @include mockup-square(30);
+      margin-bottom: 15px;
+
+      &:before {
+        @include mockup-circle(15);
+        content: ' ';
+        display: inline-block;
+        margin: 7px;
+        background-color: $mockup-white-color;
+      }
+
+      &:after {
+        @include mockup-square(10);
+
+        content: ' ';
+        display: inline-block;
+        margin: 10px 0;
+        background-color: $mockup-color;
+        width: calc(100% - 40px);
+      }
+
+      &:nth-child(2) { width: 70%; }
+      &:nth-child(3) { width: 90%; }
+      &:nth-child(4) { width: 60%; }
+      &:nth-child(5) { width: 80%; }
+      &:nth-child(6) { width: 75%; }
+      &:nth-child(7) { width: 50%; }
+      &:nth-child(8) { width: 80%; }
+      &:nth-child(9) { width: 100%; }
+
+    }
+  }
+}
+
+@mixin mockup-logo() {
+
+}
+
+

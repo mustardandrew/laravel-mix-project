@@ -6,7 +6,8 @@ mix.pug = require('laravel-mix-html-pug');
 mix
     .sass('resources/scss/main.scss', 'dist/css', {
         includePaths: [
-            'node_modules/bourbon/core'
+            'node_modules/bourbon/core',
+            'node_modules/mathsass/dist/'
         ]
     })
     .js('resources/js/main.js', 'dist/js')

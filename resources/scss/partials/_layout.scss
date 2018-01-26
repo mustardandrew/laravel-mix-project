@@ -19,6 +19,13 @@ $extra           : '(min-width: 1600px)';
    }
 }
 
+// Containers
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 // Flex
 
 .flex {

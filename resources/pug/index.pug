@@ -5,8 +5,25 @@ block title
 
 block content
     .container
-        h1 Main page
         .flex
-            .col Left column 1
-            .col.five Content column 2
-            .col Right column 3
+            .col
+                .logo
+            .col
+                .navbar
+        .flex
+            .col.five
+                .page
+                    .flex
+                        .col
+                            .image
+                            ul.properties
+                                - var n = 0;
+                                while n < 6
+                                    - n++;
+                                    li
+                        .col.three
+                            h1 Main page
+
+
+
+            .col.two Sidebar column

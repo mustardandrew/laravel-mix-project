@@ -1,5 +1,7 @@
 @import 'bourbon'; // http://bourbon.io/
 
+@import 'partials/mockup'; //
+
 @import 'partials/reset'; // reset styles
 @import 'partials/variables'; // colors, fonts etc...
 @import 'partials/mixins'; // custom mixins
@@ -7,4 +9,16 @@
 
 h1 {
   color: green;
+}
+
+.col {
+  margin: 10px;
+}
+
+.image {
+  @include mockup-image(200, 300);
+}
+
+.properties {
+  @include mockup-list();
 }

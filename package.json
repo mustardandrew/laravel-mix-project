@@ -16,6 +16,7 @@
     "browser-sync-webpack-plugin": "^1.2.0",
     "laravel-mix": "^2.0.0",
     "laravel-mix-html-pug": "^1.0.0",
+    "mathsass": "^0.10.1",
     "pug": "^2.0.0-rc.4"
   },
   "dependencies": {
